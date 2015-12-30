@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href='xsl/table.xsl' type='text/xsl'?>
+<xml>
+	<data>
+		<rec>
+			<field name="id">1</field>
+			<field name="name">kategoria</field>
+			<field name="descriptor">&#60;?xml version='1.0'
+				encoding='utf-8'?>&#60;containerdescriptor
+				classname='com.omega.engine.containers.SQLContainer'>
+				&#60;attribute name='pagesize'>15&#60;/attribute>&#60;attribute
+				name='autoopen'>true&#60;/attribute>&#60;table>
+				&#60;sqlstring>select id, megnevezes from
+				demand_kategoria&#60;/sqlstring>
+				&#60;fieldlist>
+				&#60;field name='id' type='java.lang.Integer' order='1' primarykey='true'
+				visible='false'>
+				&#60;label context='HUN'>azonosító&#60;/label>
+				&#60;/field>
+				&#60;field name='megnevezes' type='java.lang.String' order='2' visible='true'>
+				&#60;label context='HUN'>Kategória&#60;/label>
+				&#60;/field>
+				&#60;/fieldlist>
+				&#60;/table>&#60;/containerdescriptor></field>
+		</rec>
+		<rec>
+			<field name="id">2</field>
+			<field name="name">arlista</field>
+			<field name="descriptor">&#60;?xml version='1.0'
+				encoding='utf-8'?>&#60;containerdescriptor
+				classname='com.omega.engine.containers.SQLContainer'>&#60;table>
+				&#60;sqlstring>select kategoria_id, kod1, kod2, megnevezes, allapot,
+				partner_netto, fogyaszto_netto, fogyaszto_brutto, validfrom from
+				demand_arlista where kategoria_id = ?&#60;/sqlstring>
+				&#60;fieldlist>
+				&#60;field name='kategoria_id' type='java.lang.Integer' order='1'
+				primarykey='true' visible='false'>
+				&#60;label context='HUN'>Kategória azonosító&#60;/label>
+				&#60;/field>
+				&#60;field name='kod1' type='java.lang.String' order='2' visible='true'>
+				&#60;label context='HUN'>Termékcsoport kód&#60;/label>
+				&#60;/field>
+				&#60;field name='kod2' type='java.lang.String' order='3' primarykey='true'
+				visible='true'>
+				&#60;label context='HUN'>Termék azonosító&#60;/label>
+				&#60;/field>
+				&#60;field name='megnevezes' type='java.lang.String' order='4' visible='true'>
+				&#60;label context='HUN'>Megnevezés&#60;/label>
+				&#60;/field>
+				&#60;field name='allapot' type='java.lang.String' order='5' visible='true'>
+				&#60;label context='HUN'>Állapot&#60;/label>
+				&#60;/field>
+				&#60;field name='partner_netto' type='java.lang.Integer' order='6'
+				visible='true'>
+				&#60;label context='HUN'>Partner ár (nettó HUF)&#60;/label>
+				&#60;/field>
+				&#60;field name='fogyaszto_netto' type='java.lang.Integer' order='7'
+				visible='true'>
+				&#60;label context='HUN'>Fogyasztói ár (nettó HUF)&#60;/label>
+				&#60;/field>
+				&#60;field name='fogyaszto_brutto' type='java.lang.Integer' order='8'
+				visible='true'>
+				&#60;label context='HUN'>Fogyasztói ár (bruttó HUF)&#60;/label>
+				&#60;/field>
+				&#60;field name='validfrom' type='java.util.Date'
+				view='com.omega.views.fields.SimpleDateFormatView' order='9'
+				visible='true'>
+				&#60;label context='HUN'>Érvényes (-tól)&#60;/label>
+				&#60;/field>
+				&#60;/fieldlist>
+				&#60;references>&#60;container source='./kategoria' fieldname='id'/>&#60;/references>
+				&#60;/table>&#60;/containerdescriptor></field>
+		</rec>
+		<rec>
+			<field name="id">3</field>
+			<field name="name">arlistaszerk</field>
+			<field name="descriptor">&#60;?xml version='1.0'
+				encoding='utf-8'?>&#60;containerdescriptor
+				classname='com.omega.engine.containers.MemoryContainer'>
+				&#60;attribute name='autoopen'>true&#60;/attribute>&#60;table>
+				&#60;fieldlist>
+				&#60;field name='kategoria_id' type='java.lang.Integer' order='1'
+				primarykey='true' visible='true'>
+				&#60;label context='HUN'>Kategória azonosító&#60;/label>
+				&#60;/field>
+				&#60;field name='kod1' type='java.lang.String' order='2' visible='true'>
+				&#60;label context='HUN'>Termékcsoport kód&#60;/label>
+				&#60;/field>
+				&#60;field name='kod2' type='java.lang.String' order='3' primarykey='true'
+				visible='true'>
+				&#60;label context='HUN'>Termék azonosító&#60;/label>
+				&#60;/field>
+				&#60;field name='megnevezes' type='java.lang.String' order='4' visible='true'
+				editortype='textarea' editoroptions='rows=10 cols=80'>
+				&#60;label context='HUN'>Megnevezés&#60;/label>
+				&#60;/field>
+				&#60;field name='allapot' type='java.lang.String' order='5' visible='true'>
+				&#60;label context='HUN'>Állapot&#60;/label>
+				&#60;/field>
+				&#60;field name='partner_netto' type='java.lang.Integer' order='6'
+				visible='true'>
+				&#60;label context='HUN'>Partner ár (nettó HUF)&#60;/label>
+				&#60;/field>
+				&#60;field name='fogyaszto_netto' type='java.lang.Integer' order='7'
+				visible='true'>
+				&#60;label context='HUN'>Fogyasztói ár (nettó HUF)&#60;/label>
+				&#60;/field>
+				&#60;field name='fogyaszto_brutto' type='java.lang.Integer' order='8'
+				visible='true'>
+				&#60;label context='HUN'>Fogyasztói ár (bruttó HUF)&#60;/label>
+				&#60;/field>
+				&#60;field name='validfrom' type='java.lang.String' order='9' visible='true'>
+				&#60;label context='HUN'>Érvényes (-tól)&#60;/label>
+				&#60;/field>
+				&#60;/fieldlist>
+				&#60;/table>&#60;/containerdescriptor></field>
+		</rec>
+		<rec>
+			<field name="id">4</field>
+			<field name="name">kategoria</field>
+			<field name="descriptor">&#60;?xml version='1.0'
+				encoding='utf-8'?>&#60;containerdescriptor
+				classname='com.omega.engine.containers.SQLContainer'>
+				&#60;attribute name='pagesize'>10&#60;/attribute>&#60;attribute
+				name='autoopen'>true&#60;/attribute>&#60;table>
+				&#60;sqlstring>select id, megnevezes from
+				demand_kategoria&#60;/sqlstring>
+				&#60;fieldlist>
+				&#60;field name='id' type='java.lang.Integer' order='1' primarykey='true'
+				visible='false'>
+				&#60;label context='HUN'>azonosító&#60;/label>
+				&#60;/field>
+				&#60;field name='megnevezes' type='java.lang.String' order='2' visible='true'>
+				&#60;label context='HUN'>Kategória&#60;/label>
+				&#60;/field>
+				&#60;/fieldlist>
+				&#60;/table>&#60;/containerdescriptor></field>
+		</rec>
+		<rec>
+			<field name="id">5</field>
+			<field name="name">level_lista</field>
+			<field name="descriptor">&#60;?xml version='1.0'
+				encoding='utf-8'?>&#60;containerdescriptor
+				classname='com.omega.engine.containers.MemoryContainer'>
+				&#60;attribute name='pagesize'>10&#60;/attribute>&#60;attribute
+				name='autoopen'>true&#60;/attribute>&#60;table>
+				&#60;fieldlist>
+				&#60;field name='messagenumber' type='java.lang.Integer' order='1'
+				visible='true'>
+				&#60;label context='HUN'>Azonosító&#60;/label>
+				&#60;/field>
+				&#60;field name='date' type='java.util.Date' order='2' visible='true'>
+				&#60;label context='HUN'>Dátum&#60;/label>
+				&#60;/field>
+				&#60;field name='from' type='java.lang.String' order='3' visible='true'>
+				&#60;label context='HUN'>Feladó&#60;/label>
+				&#60;/field>
+				&#60;field name='subject' type='java.lang.String' order='4' visible='true'>
+				&#60;label context='HUN'>Tárgy&#60;/label>
+				&#60;/field>
+				&#60;/fieldlist>
+				&#60;/table>&#60;/containerdescriptor></field>
+		</rec>
+		<rec>
+			<field name="id">6</field>
+			<field name="name">dbfcontainer</field>
+			<field name="descriptor">&#60;?xml version='1.0'
+				encoding='utf-8'?>&#60;containerdescriptor
+				classname='com.omega.engine.containers.CachedReadOnlyDBFContainer'>
+				&#60;table>
+				&#60;fieldlist>
+				&#60;field name='kulcs' type='java.lang.Integer' order='1' visible='true'>
+				&#60;label context='HUN'>Kulcs&#60;/label>
+				&#60;/field>
+				&#60;field name='cim' type='java.lang.String' order='2' visible='true'>
+				&#60;label context='HUN'>Cím&#60;/label>
+				&#60;/field>
+				&#60;field name='mutato' type='java.lang.Integer' order='3' visible='true'>
+				&#60;label context='HUN'>Mutató&#60;/label>
+				&#60;/field>
+				&#60;/fieldlist>
+				&#60;/table>&#60;/containerdescriptor>
+			</field>
+		</rec>
+	</data>
+</xml>
